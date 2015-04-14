@@ -1,0 +1,22 @@
+{
+	"name": "hautelook/halo-sql",
+	"type": "library",
+	"version": "0.1.0",
+	"time": "2012-11-12",
+	"license": "Public Domain",
+	"description": "Minimal SQL database for Halo",
+	"keywords": [
+		"SQL"
+	],
+	"homepage": "https://www.hautelook.com",
+	"authors": [
+	{
+		"name": "Hautelook",
+		"email": "tech@hautelook.com",
+		"homepage": "http://www.hautelooktech.com/"
+	}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	}
+}
