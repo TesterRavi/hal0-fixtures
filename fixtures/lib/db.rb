@@ -40,6 +40,7 @@ class Db
     system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME};' --user=root"
     system "#{cmd} -e 'CREATE DATABASE #{DB_NAME};' --user=root"
     system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\";' --user=root"
+    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"hautelook\"@\"%\";' --user=root"
     system "#{cmd} -e 'FLUSH PRIVILEGES;' --user=root"
   end
 
