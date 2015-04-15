@@ -82,8 +82,8 @@ class Exporter
     @cmd = "mysqldump -u#{db_user} #{db_name}"
   end
 
-  def schema(directory)
-    system "#{@cmd} #{SCHEMA_ARGS} --tab=#{directory}"
+  def schema(table, filename)
+    system "#{@cmd} #{SCHEMA_ARGS} #{table} > #{filename}"
   end
 
   def sprocs(filename)

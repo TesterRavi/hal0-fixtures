@@ -34,7 +34,7 @@ class HautelookDb
     export_tables
     export_sprocs
   end
-  
+
   def import
     import_schema
     import_sprocs
@@ -96,7 +96,10 @@ class HautelookDb
     end
 
     def export_schema
-      db.export.schema @schemafiles_dir
+      table_names.each do |t|
+        filename = schema_filename(t)
+        raise "error dumping schema for table #{t} to #{filename}" unless db.export.schema(t, filename)
+      end
     end
 
     def export_sprocs
