@@ -19,13 +19,13 @@ class Db
 
   def audit_table(table)
     raise "table '#{table} not defined for database '#{DB_NAME}'" unless table_names.include? table
-    foreign_keys.audit_table table 
+    foreign_keys.audit_table table
   end
 
   def export
     @exporter ||= Exporter.new(DB_NAME, DB_USER)
   end
-    
+
   def foreign_keys
     @foreign_keys ||= ForeignKeys.new(client, DB_NAME, DB_USER)
   end
@@ -35,11 +35,12 @@ class Db
   end
 
   def reset
-    cmd = "mysql -u #{DB_USER}"
-    system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME}'"
-    system "#{cmd} -e 'CREATE DATABASE #{DB_NAME}'"
-    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\"'"
-    system "#{cmd} -e 'FLUSH PRIVILEGES'"
+    # cmd = "mysql -u #{DB_USER}"
+    cmd = "mysql"
+    system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME};' --user=root"
+    system "#{cmd} -e 'CREATE DATABASE #{DB_NAME};' --user=root"
+    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\";' --user=root"
+    system "#{cmd} -e 'FLUSH PRIVILEGES;' --user=root"
   end
 
   def table_constraints
@@ -57,7 +58,7 @@ class Db
 
   def table_referential_constraints
     client.query(
-      "SELECT TABLE_NAME, REFERENCED_TABLE_NAME 
+      "SELECT TABLE_NAME, REFERENCED_TABLE_NAME
       FROM information_schema.REFERENTIAL_CONSTRAINTS
       WHERE CONSTRAINT_SCHEMA = '#{DB_NAME}'"
     )
@@ -71,14 +72,14 @@ class Db
     end
 end
 
-class Exporter 
+class Exporter
   SCHEMA_ARGS = '--no-data --skip-comments --skip-triggers'
   SPROC_ARGS = '--events --no-create-db --no-create-info --no-data --routines --skip-comments --skip-opt --skip-triggers'
   TABLE_DATA_ARGS = '--no-create-db --no-create-info --skip-comments --skip-triggers'
   TABLE_TRIGGER_ARGS = '--events --no-create-db --no-create-info --no-data --skip-comments'
 
   def initialize(db_name, db_user)
-    @cmd = "mysqldump -u #{db_user} #{db_name}"
+    @cmd = "mysqldump -u#{db_user} #{db_name}"
   end
 
   def schema(directory)
@@ -105,8 +106,8 @@ class ForeignKeys
   def initialize(client, db_name, db_user)
     @client = client
     @db_name = db_name
-    @disable_cmd = "mysql -u #{db_user} #{DISABLE_ARGS} #{db_name}"
-    @enable_cmd = "mysql -u #{db_user} #{ENABLE_ARGS} #{db_name}"
+    @disable_cmd = "mysql -u#{db_user} #{DISABLE_ARGS} #{db_name}"
+    @enable_cmd = "mysql -u#{db_user} #{ENABLE_ARGS} #{db_name}"
   end
 
   def audit
@@ -151,7 +152,7 @@ end
 
 class Importer
   def initialize(db_name, db_user)
-    @cmd = "mysql -u #{db_user} #{db_name}"
+    @cmd = "mysql -u#{db_user} #{db_name}"
   end
 
   def import(filename)
