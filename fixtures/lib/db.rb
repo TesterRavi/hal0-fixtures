@@ -35,7 +35,8 @@ class Db
   end
 
   def reset
-    cmd = "mysql -u #{DB_USER}"
+    # cmd = "mysql -u #{DB_USER}"
+    cmd = "mysql"
     system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME};' --user=root"
     system "#{cmd} -e 'CREATE DATABASE #{DB_NAME};' --user=root"
     system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\";' --user=root"
