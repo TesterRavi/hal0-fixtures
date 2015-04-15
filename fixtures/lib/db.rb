@@ -19,13 +19,13 @@ class Db
 
   def audit_table(table)
     raise "table '#{table} not defined for database '#{DB_NAME}'" unless table_names.include? table
-    foreign_keys.audit_table table 
+    foreign_keys.audit_table table
   end
 
   def export
     @exporter ||= Exporter.new(DB_NAME, DB_USER)
   end
-    
+
   def foreign_keys
     @foreign_keys ||= ForeignKeys.new(client, DB_NAME, DB_USER)
   end
@@ -36,10 +36,10 @@ class Db
 
   def reset
     cmd = "mysql -u #{DB_USER}"
-    system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME}'"
-    system "#{cmd} -e 'CREATE DATABASE #{DB_NAME}'"
-    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\"'"
-    system "#{cmd} -e 'FLUSH PRIVILEGES'"
+    system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME};' --user=root"
+    system "#{cmd} -e 'CREATE DATABASE #{DB_NAME};' --user=root"
+    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\";' --user=root"
+    system "#{cmd} -e 'FLUSH PRIVILEGES;' --user=root"
   end
 
   def table_constraints
@@ -57,7 +57,7 @@ class Db
 
   def table_referential_constraints
     client.query(
-      "SELECT TABLE_NAME, REFERENCED_TABLE_NAME 
+      "SELECT TABLE_NAME, REFERENCED_TABLE_NAME
       FROM information_schema.REFERENTIAL_CONSTRAINTS
       WHERE CONSTRAINT_SCHEMA = '#{DB_NAME}'"
     )
@@ -71,7 +71,7 @@ class Db
     end
 end
 
-class Exporter 
+class Exporter
   SCHEMA_ARGS = '--no-data --skip-comments --skip-triggers'
   SPROC_ARGS = '--events --no-create-db --no-create-info --no-data --routines --skip-comments --skip-opt --skip-triggers'
   TABLE_DATA_ARGS = '--no-create-db --no-create-info --skip-comments --skip-triggers'
