@@ -97,6 +97,7 @@ class HautelookDb
 
     def export_schema
       table_names.each do |t|
+        puts "installing: #{t}"
         filename = schema_filename(t)
         raise "error dumping schema for table #{t} to #{filename}" unless db.export.schema(t, filename)
       end
