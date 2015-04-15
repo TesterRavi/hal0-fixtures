@@ -25,7 +25,7 @@ CREATE TABLE `solr_queue_flash` (
   KEY `IDX_solr_queue_flash::locked_since_connection_id` (`locked_since`,`connection_id`),
   CONSTRAINT `FK_solr_queue_flash::events` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_solr_queue_flash::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11262 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16893 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -12,7 +12,7 @@
 
 LOCK TABLES `preview_event_batches_filters` WRITE;
 /*!40000 ALTER TABLE `preview_event_batches_filters` DISABLE KEYS */;
-INSERT INTO `preview_event_batches_filters` VALUES ('test','Filter_SalesPreview_Country','{\"type\":\"include\",\"data\":[\"AS\"]}','2015-04-15 21:50:46','2011-05-18 20:48:30');
+INSERT INTO `preview_event_batches_filters` VALUES ('test','Filter_SalesPreview_Country','{\"type\":\"include\",\"data\":[\"AS\"]}','2015-04-15 22:11:51','2011-05-18 20:48:30');
 /*!40000 ALTER TABLE `preview_event_batches_filters` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
