@@ -20,7 +20,7 @@ CREATE TABLE `solr_queue_populate_sku` (
   KEY `FK_solr_queue_populate_sku::skus` (`sku`),
   KEY `IDX_solr_queue_populate_sku::locked_since_connection_id` (`locked_since`,`connection_id`),
   CONSTRAINT `FK_solr_queue_populate_sku::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4104 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8207 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

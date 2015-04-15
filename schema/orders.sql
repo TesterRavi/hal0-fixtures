@@ -47,7 +47,6 @@ CREATE TABLE `orders` (
   `surcharge_rate` decimal(10,4) unsigned DEFAULT '0.0000',
   `fraud` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `age_verified` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `impersonator_id` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`order_id`),
   KEY `ship_method_id` (`ship_method_id`),
   KEY `FK_orders::campaigns` (`sid`),

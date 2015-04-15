@@ -20,7 +20,7 @@ CREATE TABLE `solr_queue_populate_style` (
   KEY `FK_solr_queue_populate_style::styles` (`style_id`),
   KEY `IDX_solr_queue_populate_style::locked_since_connection_id` (`locked_since`,`connection_id`),
   CONSTRAINT `FK_solr_queue_populate_style::styles` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

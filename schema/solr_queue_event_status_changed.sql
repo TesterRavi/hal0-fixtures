@@ -15,7 +15,6 @@ CREATE TABLE `solr_queue_event_status_changed` (
   `triggered_at` datetime NOT NULL,
   `locked_since` datetime DEFAULT NULL,
   `event_id` int(10) unsigned NOT NULL,
-  `event_status` int(10) unsigned NOT NULL,
   `connection_id` int(10) unsigned DEFAULT NULL,
   KEY `message_id` (`message_id`),
   KEY `FK_solr_queue_event_status_changed::events` (`event_id`),

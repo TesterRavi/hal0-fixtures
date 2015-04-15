@@ -12,6 +12,12 @@ class HautelookDb
     @db = Db.new
   end
 
+  def apply_transformations
+    Dir.glob("#{@transformationfiles_dir}/*.sql").each do |x_file|
+      raise "stored procedure import failed from #{x_file}" unless db.apply x_file
+    end
+  end
+
   def audit
     invalid_tables = db.audit
     invalid_tables.values.each do |t|
@@ -32,8 +38,18 @@ class HautelookDb
   def import
     import_schema
     import_sprocs
-    import_tables
+    import_triggers
+    import_data
     apply_transformations
+  end
+
+  def import_data
+    constrained_table_order.each do |t|
+      data_file = table_data_filename t
+      if File.exists? data_file
+        raise "data import failed from #{data_file}" unless db.import.table_data data_file
+      end
+    end
   end
 
   # TODO dry out view_gp_po_header crap
@@ -57,15 +73,11 @@ class HautelookDb
     raise "stored procedure import failed from #{@sprocfile}" unless db.import.sprocs @sprocfile
   end
 
-  def import_tables
+  def import_triggers
     constrained_table_order.each do |t|
-      data_file = table_data_filename t
-      if File.exists? data_file
-        raise "data import failed from #{data_file}" unless db.import.table_data data_file
-      end
       trigger_file = table_triggers_filename t
       if File.exists? trigger_file
-        raise "trigger import failed from #{trigger_file}" unless db.import.table_data trigger_file
+        raise "trigger import failed from #{trigger_file}" unless db.import.table_triggers trigger_file
       end
     end
   end
@@ -75,12 +87,6 @@ class HautelookDb
   end
 
   private
-    def apply_transformations
-      Dir.glob("#{@transformationfiles_dir}/*.sql").each do |x_file|
-        raise "stored procedure import failed from #{x_file}" unless db.apply x_file
-      end
-    end
-
     def constrained_table_order
       return Ordering.new(db.table_constraints).ordering
     end

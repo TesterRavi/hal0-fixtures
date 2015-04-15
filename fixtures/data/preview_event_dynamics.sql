@@ -12,7 +12,7 @@
 
 LOCK TABLES `preview_event_dynamics` WRITE;
 /*!40000 ALTER TABLE `preview_event_dynamics` DISABLE KEYS */;
-INSERT INTO `preview_event_dynamics` VALUES ('test_case_2','2013-04-24 07:00:00','2013-09-24 07:00:00','2015-04-13 22:36:04','2011-07-13 22:47:21');
+INSERT INTO `preview_event_dynamics` VALUES ('test_case_2','2013-04-24 07:00:00','2013-09-24 07:00:00','2015-04-15 20:42:54','2011-07-13 22:47:21');
 /*!40000 ALTER TABLE `preview_event_dynamics` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

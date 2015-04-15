@@ -12,22 +12,25 @@ def usage
   puts 'Usage: fixtures [ACTION]'
   puts 'Actions are one of the following'
   puts 'audit               - check mysql for referential integrity'
-  puts 'audit_table <table> - audit a specific table for '
+  puts 'audit-table <table> - audit a specific table for '
   puts 'export              - write sql files with the schema, table data and stored procedures'
   puts '                      to the filesystem'
   puts 'populate            - populate mysql with schema, table data and stored procedures from the filesystem'
+  puts 'populate-data       - populate mysql with table data from the filesystem'
   puts 'populate-schema     - reset the database and load the schema defined in halo-sql/schema'
   puts 'populate-sprocs     - populate mysql with stored procedures from the filesystem'
-  puts 'populate-tables     - populate mysql with table data and triggers from the filesystem'
-  puts '                      (assumes schema are already defined in mysql)'
+  puts 'populate-triggers   - populate mysql with triggers from the filesystem'
   puts 'resetdb             - drop and create the empty database'
 end
 
 begin
   case action
-    when 'audit'
+  when 'audit'
     hdb.audit
-  when 'audit_table'
+  when 'apply-transformations'
+    puts 'applying transformations to the fixture data...'
+    hdb.apply_transformations
+  when 'audit-table'
     table = ARGV[1]
     if table.nil?
      puts "audit_table needs to be told which table to audit"
@@ -40,15 +43,18 @@ begin
   when 'populate'
     puts 'populating database...'
     hdb.import
-  when 'populate-tables'
-    puts "populating table triggers and data..."
-    hdb.import_tables
+  when 'populate-data'
+    puts "populating table data..."
+    hdb.import_data
   when 'populate-schema'
     puts "populating schema..."
     hdb.import_schema
   when 'populate-sprocs'
     puts "populating stored procedures..."
     hdb.import_sprocs
+  when 'populate-triggers'
+    puts "populating table triggers..."
+    hdb.import_triggers
   when 'resetdb'
     hdb.reset
   else

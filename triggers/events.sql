@@ -68,8 +68,7 @@ FOR EACH ROW
     
     IF NOT (OLD.event_status <=> NEW.event_status)
     THEN
-      INSERT INTO solr_queue_event_status_changed (event_id, event_status, triggered_at)
-      VALUES (NEW.event_id, NEW.event_status, NOW());
+      INSERT INTO solr_queue_event_status_changed (event_id, triggered_at) VALUES (NEW.event_id, NOW());
     END IF;
 
     IF

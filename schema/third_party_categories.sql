@@ -16,7 +16,7 @@ CREATE TABLE `third_party_categories` (
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category` (`category`),
   CONSTRAINT `FK_third_party_categories::categories` FOREIGN KEY (`category`) REFERENCES `categories` (`category`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=456 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
