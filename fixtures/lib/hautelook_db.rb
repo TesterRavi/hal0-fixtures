@@ -97,7 +97,7 @@ class HautelookDb
 
     def export_schema
       table_names.each do |t|
-        puts "installing: #{t}"
+        puts "exporting-schema: #{t}"
         filename = schema_filename(t)
         raise "error dumping schema for table #{t} to #{filename}" unless db.export.schema(t, filename)
       end
@@ -109,6 +109,7 @@ class HautelookDb
 
     def export_tables
       table_names.each do |t|
+        puts "exporting-data-triggers: #{t}"
         filename = table_data_filename(t)
         raise "error dumping data for table #{t} to #{filename}" unless db.export.table_data(t, filename)
         filename = table_triggers_filename(t)
