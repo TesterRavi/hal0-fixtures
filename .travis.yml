@@ -13,7 +13,7 @@ script:
     -  pwd
     -  cd fixtures
     -  cd bin
-    -
+    -  ls
     - ./fixtures "populate-schema",
     - ./fixtures "populate-triggers",
     - ./fixtures "populate-sprocs",
