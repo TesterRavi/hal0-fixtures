@@ -14,12 +14,12 @@ script:
     -  cd fixtures
     -  cd bin
     -  ls
-    - ./fixtures "populate-schema",
-    - ./fixtures "populate-triggers",
-    - ./fixtures "populate-sprocs",
-    - ./fixtures "populate-data",
-    - ./fixtures "apply-transformations",
-    - ./fixtures "install-enable",
+    - ./fixtures "populate-schema"
+    - ./fixtures "populate-triggers"
+    - ./fixtures "populate-sprocs"
+    - ./fixtures "populate-data"
+    - ./fixtures "apply-transformations"
+    - ./fixtures "install-enable"
 
 notifications:
     email: false
