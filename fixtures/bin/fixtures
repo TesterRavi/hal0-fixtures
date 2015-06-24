@@ -26,7 +26,7 @@ def usage
   # puts 'install-disable     - disable contribution to fixtures'
   # puts 'install-enable      - enable contribution to fixtures'
   # puts 'install-check       - checks if contribution mode is enabled or disabled'
-  # puts 'resetdb             - drop and create the empty database'
+   # puts 'resetdb             - drop and create the empty database'
 end
 
 begin
