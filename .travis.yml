@@ -10,11 +10,12 @@ php:
 install: gem install mysql2
 
 script:
+    -  pwd
     - ./fixtures/bin/fixtures "populate-schema",
     - ./fixtures/bin/fixtures "populate-triggers",
     - ./fixtures/bin/fixtures "populate-sprocs",
     - ./fixtures/bin/fixtures "populate-data",
-    - ./bin/fixtures "apply-transformations",
+    - ./fixtures/bin/fixtures "apply-transformations",
     - ./fixtures/bin/fixtures "install-enable",
 
 notifications:
