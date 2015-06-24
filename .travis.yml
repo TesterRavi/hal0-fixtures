@@ -10,12 +10,12 @@ php:
 install: gem install mysql2
 
 script:
-    - ./vendor/hautelook/halo-sql/fixtures/bin/fixtures "populate-schema",
-    - ./vendor/hautelook/halo-sql/fixtures/bin/fixtures "populate-triggers",
-    - ./vendor/hautelook/halo-sql/fixtures/bin/fixtures "populate-sprocs",
-    - ./vendor/hautelook/halo-sql/fixtures/bin/fixtures "populate-data",
-    - ./vendor/hautelook/halo-sql/fixtures/bin/fixtures "apply-transformations",
-    - ./vendor/hautelook/halo-sql/fixtures/bin/fixtures "install-enable",
+    - ./fixtures/bin/fixtures "populate-schema",
+    - ./fixtures/bin/fixtures "populate-triggers",
+    - ./fixtures/bin/fixtures "populate-sprocs",
+    - ./fixtures/bin/fixtures "populate-data",
+    - ./bin/fixtures "apply-transformations",
+    - ./fixtures/bin/fixtures "install-enable",
 
 notifications:
     email: false
