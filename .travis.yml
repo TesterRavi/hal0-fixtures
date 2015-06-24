@@ -11,6 +11,7 @@ install: gem install mysql2
 
 script:
     -  pwd
+    -  ls
     - ./fixtures/bin/fixtures "populate-schema",
     - ./fixtures/bin/fixtures "populate-triggers",
     - ./fixtures/bin/fixtures "populate-sprocs",
