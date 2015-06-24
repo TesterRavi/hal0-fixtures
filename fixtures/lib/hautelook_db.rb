@@ -64,9 +64,13 @@ class HautelookDb
         if view_gp_po_header_file == schema_file then
 
            puts "schema_file: #{schema_file}"
+           next
+      else
 
-         end
         raise "schema import failed from #{schema_file}" unless db.import.schema schema_file
+
+
+      end
       end
       schema_file = view_gp_po_header_file
       puts "schema file here: #{schema_file}"
