@@ -61,10 +61,15 @@ class HautelookDb
     db.foreign_keys.disable_check
     begin
       Dir.glob("#{@schemafiles_dir}/*.sql").each do |schema_file|
-        next if view_gp_po_header_file == schema_file
+        if view_gp_po_header_file == schema_file then
+
+           puts "schema_file: #{schema_file}"
+
+         end
         raise "schema import failed from #{schema_file}" unless db.import.schema schema_file
       end
       schema_file = view_gp_po_header_file
+      puts "schema file here: #{schema_file}"
       raise "schema import failed from #{schema_file}" unless db.import.schema schema_file
     ensure
       db.foreign_keys.enable_check
