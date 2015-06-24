@@ -19,11 +19,12 @@ CREATE TABLE `impersonation_tokens` (
   `created_at` datetime NOT NULL,
   `expires_at` datetime NOT NULL,
   `impersonated_at` datetime DEFAULT NULL,
+  `logged_out_at` datetime DEFAULT NULL,
   PRIMARY KEY (`token`),
   KEY `FK_impersonation_tokens::member_id` (`member_id`),
   KEY `FK_impersonation_tokens::impersonator_id` (`impersonator_id`),
-  CONSTRAINT `FK_impersonation_tokens::member_id` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`),
-  CONSTRAINT `FK_impersonation_tokens::impersonator_id` FOREIGN KEY (`impersonator_id`) REFERENCES `members` (`member_id`)
+  CONSTRAINT `FK_impersonation_tokens::impersonator_id` FOREIGN KEY (`impersonator_id`) REFERENCES `members` (`member_id`),
+  CONSTRAINT `FK_impersonation_tokens::member_id` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

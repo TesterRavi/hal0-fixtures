@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 5.5.34, for Linux (x86_64)
---
--- Host: localhost    Database: hautelook
--- ------------------------------------------------------
--- Server version	5.5.34
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,24 +9,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `tmp_unset_return_complete_date`
---
-
-DROP TABLE IF EXISTS `tmp_unset_return_complete_date`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tmp_unset_return_complete_date` (
-  `return_id` int(10) unsigned NOT NULL,
-  `complete_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`return_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tmp_unset_return_complete_date`
---
 
 LOCK TABLES `tmp_unset_return_complete_date` WRITE;
 /*!40000 ALTER TABLE `tmp_unset_return_complete_date` DISABLE KEYS */;
@@ -47,4 +24,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-24  0:06:08

@@ -30,7 +30,8 @@ CREATE TABLE `brands` (
   `measurement_guide` varchar(40) DEFAULT NULL,
   `allow_persistent_catalog` tinyint(1) NOT NULL DEFAULT '1',
   `nordstrom_brand` tinyint(1) NOT NULL DEFAULT '0',
-  `display_brand_name` tinyint(1) NOT NULL DEFAULT '1',
+  `display_brand_name` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`brand_id`),
   UNIQUE KEY `brand` (`brand`,`size_chart`,`brand_parent_id`,`corporate_name`),
   KEY `FK_brands::brand_parents` (`brand_parent_id`),
@@ -43,7 +44,7 @@ CREATE TABLE `brands` (
   CONSTRAINT `FK_brands::measurement_guides` FOREIGN KEY (`measurement_guide`) REFERENCES `measurement_guides` (`measurement_guide`) ON UPDATE CASCADE,
   CONSTRAINT `FK_brands::size_charts` FOREIGN KEY (`size_chart`) REFERENCES `size_charts` (`size_chart`) ON UPDATE CASCADE,
   CONSTRAINT `FK_brands::warehouses` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`warehouse_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8501 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15234 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

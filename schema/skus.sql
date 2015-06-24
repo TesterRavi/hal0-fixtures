@@ -26,25 +26,26 @@ CREATE TABLE `skus` (
   `sort` tinyint(3) unsigned NOT NULL,
   `barcode` varchar(64) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT '0',
-  `quantity_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `quantity_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `msrp` decimal(10,2) NOT NULL DEFAULT '0.00',
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
   `clearance_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `full_line_transfer` tinyint(1) NOT NULL DEFAULT '0',
   `allow_persistent_catalog` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`sku`),
   UNIQUE KEY `upc_2` (`upc`),
-  KEY `nupc` (`nupc`),
   KEY `color` (`color`),
   KEY `size` (`size`),
   KEY `FK_skus::styles` (`style_id`),
   KEY `FK_skus::redemption_locations` (`location_brand_id`,`location`),
   KEY `FK_skus::color_families` (`color_family`),
+  KEY `nupc` (`nupc`),
   CONSTRAINT `FK_skus::color_families` FOREIGN KEY (`color_family`) REFERENCES `color_families` (`color_family`),
   CONSTRAINT `FK_skus::redemption_locations` FOREIGN KEY (`location_brand_id`, `location`) REFERENCES `redemption_locations` (`brand_id`, `location`) ON UPDATE CASCADE,
   CONSTRAINT `FK_skus::styles` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2736241 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8046021 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

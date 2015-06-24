@@ -18,7 +18,7 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger event_page_sorts_ai AFTER INSERT ON event_page_sorts FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 trigger event_page_sorts_ai AFTER INSERT ON event_page_sorts FOR EACH ROW
 
 BEGIN
 

@@ -12,7 +12,6 @@
 
 LOCK TABLES `styles_shipping_rules` WRITE;
 /*!40000 ALTER TABLE `styles_shipping_rules` DISABLE KEYS */;
-INSERT INTO `styles_shipping_rules` VALUES (73393,'no_3_day'),(156236,'no_3_day'),(156237,'no_3_day'),(156238,'no_3_day'),(156240,'no_3_day'),(156241,'no_3_day'),(156242,'no_3_day'),(156243,'no_3_day'),(156245,'no_3_day'),(156246,'no_3_day'),(156247,'no_3_day'),(156248,'no_3_day'),(156249,'no_3_day'),(173882,'no_3_day'),(173883,'no_3_day'),(173884,'no_3_day'),(156236,'premier'),(156237,'premier'),(156238,'premier'),(156240,'premier'),(156241,'premier'),(156242,'premier'),(156243,'premier'),(156245,'premier'),(156246,'premier'),(156247,'premier'),(156248,'premier'),(156249,'premier');
 /*!40000 ALTER TABLE `styles_shipping_rules` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -24,7 +24,7 @@ CREATE TABLE `returns_log` (
   KEY `FK_returns_log::members` (`member_id`),
   CONSTRAINT `FK_returns_log::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_returns_log::return_items` FOREIGN KEY (`return_item_id`) REFERENCES `return_items` (`item_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2500507 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

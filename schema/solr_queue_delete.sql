@@ -18,7 +18,7 @@ CREATE TABLE `solr_queue_delete` (
   `connection_id` int(10) unsigned DEFAULT NULL,
   KEY `message_id` (`message_id`),
   KEY `IDX_solr_queue_delete::locked_since_connection_id` (`locked_since`,`connection_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13205 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

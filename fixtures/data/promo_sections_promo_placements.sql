@@ -12,7 +12,6 @@
 
 LOCK TABLES `promo_sections_promo_placements` WRITE;
 /*!40000 ALTER TABLE `promo_sections_promo_placements` DISABLE KEYS */;
-INSERT INTO `promo_sections_promo_placements` VALUES ('event_page','0'),('cart','1'),('checkout','1'),('event_page','1'),('merch_page','1'),('receipt','1'),('event_page','2'),('merch_page','2'),('event_page','3'),('merch_page','3'),('event_page','4'),('merch_page','4'),('event_page','5'),('merch_page','5'),('event_page','6'),('merch_page','6'),('event_page','7'),('event_page','bottom_promo'),('event_page','collapsible_promo'),('event_page','grid_promo'),('event_page','top_promo');
 /*!40000 ALTER TABLE `promo_sections_promo_placements` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

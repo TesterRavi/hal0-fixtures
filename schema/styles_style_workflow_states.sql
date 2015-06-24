@@ -19,8 +19,8 @@ CREATE TABLE `styles_style_workflow_states` (
   PRIMARY KEY (`style_id`),
   KEY `FK_styles_workflow::workflow_state` (`style_workflow_state`),
   KEY `FK_styles_workflow::member_id` (`member_id`),
-  CONSTRAINT `FK_styles_workflow::workflow_state` FOREIGN KEY (`style_workflow_state`) REFERENCES `style_workflow_states` (`style_workflow_state`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_styles_workflow::style_id` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`) ON UPDATE CASCADE
+  CONSTRAINT `FK_styles_workflow::style_id` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_styles_workflow::workflow_state` FOREIGN KEY (`style_workflow_state`) REFERENCES `style_workflow_states` (`style_workflow_state`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

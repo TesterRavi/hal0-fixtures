@@ -18,7 +18,7 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_cart_items_insert AFTER INSERT ON cart_items
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_cart_items_insert AFTER INSERT ON cart_items
 FOR EACH ROW
   BEGIN
     INSERT INTO solr_queue_inventory (sku, event_id, triggered_at) VALUES (NEW.sku, NEW.event_id, NOW());
@@ -37,7 +37,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_cart_items_update AFTER UPDATE ON cart_items
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_cart_items_update AFTER UPDATE ON cart_items
 FOR EACH ROW
   BEGIN
     IF
@@ -74,7 +74,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_cart_items_delete AFTER DELETE ON cart_items
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_cart_items_delete AFTER DELETE ON cart_items
 FOR EACH ROW
   BEGIN
     INSERT INTO solr_queue_inventory (sku, event_id, triggered_at) VALUES (OLD.sku, OLD.event_id, NOW());

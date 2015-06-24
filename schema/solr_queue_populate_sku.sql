@@ -18,11 +18,10 @@ CREATE TABLE `solr_queue_populate_sku` (
   `locked_since` datetime DEFAULT NULL,
   `sku` int(10) unsigned NOT NULL,
   `connection_id` int(10) unsigned DEFAULT NULL,
-  KEY `message_id` (`message_id`),
+  PRIMARY KEY (`message_id`),
   KEY `FK_solr_queue_populate_sku::skus` (`sku`),
-  KEY `IDX_solr_queue_populate_sku::locked_since_connection_id` (`locked_since`,`connection_id`),
-  CONSTRAINT `FK_solr_queue_populate_sku::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12311 DEFAULT CHARSET=latin1;
+  KEY `IDX_solr_queue_populate_sku::locked_since_connection_id` (`locked_since`,`connection_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30265238 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

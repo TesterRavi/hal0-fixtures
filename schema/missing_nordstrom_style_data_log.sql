@@ -22,7 +22,7 @@ CREATE TABLE `missing_nordstrom_style_data_log` (
   KEY `timestamp` (`created_at`),
   KEY `FK_missing_nordstrom_style_data_log::styles` (`style_id`),
   CONSTRAINT `FK_missing_nordstrom_style_data_log::styles` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33542 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

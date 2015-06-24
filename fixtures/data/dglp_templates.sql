@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 5.5.34, for Linux (x86_64)
---
--- Host: localhost    Database: hautelook
--- ------------------------------------------------------
--- Server version	5.5.34
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,26 +10,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `dglp_templates`
---
-
-DROP TABLE IF EXISTS `dglp_templates`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dglp_templates` (
-  `template` varchar(100) NOT NULL,
-  PRIMARY KEY (`template`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `dglp_templates`
---
-
 LOCK TABLES `dglp_templates` WRITE;
 /*!40000 ALTER TABLE `dglp_templates` DISABLE KEYS */;
-INSERT INTO `dglp_templates` VALUES ('center-bgimg-reg-page'),('horizontal-reg-page'),('index-stylewatch'),('index-www'),('mk-index'),('mk-romance'),('template1'),('template2'),('vertical-reg-page');
+INSERT  IGNORE INTO `dglp_templates` VALUES ('center-bgimg-reg-page'),('center-html5'),('horizontal-reg-page'),('index-stylewatch'),('index-www'),('mk-index'),('mk-romance'),('mobile-redirect'),('template1'),('template2'),('vertical-reg-page');
 /*!40000 ALTER TABLE `dglp_templates` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +25,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-24  0:05:18

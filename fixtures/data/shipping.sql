@@ -12,7 +12,7 @@
 
 LOCK TABLES `shipping` WRITE;
 /*!40000 ALTER TABLE `shipping` DISABLE KEYS */;
-INSERT INTO `shipping` VALUES (397117,4133,'nighat','khan','','12158 palmer drive','','moorpark','CA','93021','US','2010-03-25 18:35:47','12158 palmer drive','805-523-7171',1,'','2011-03-15 20:33:32','N'),(1526201,4133,'nighat','khan','','6695 north benwood drive','','moorpark','CA','93021','US','2012-01-14 09:25:22','6695 north benwood drive','805-523-7171',1,'','2012-10-14 20:47:14','N');
+INSERT  IGNORE INTO `shipping` VALUES (2239517,22894117,'Ann','cOONEY','','46 Gerdes Ave','','Verona','NJ','07044','US','2015-06-13 19:07:22','Ann cOONEY\'s PayPal','973-239-7215',1,'nancooney@comcast.net','2015-06-19 21:52:51','N'),(2590999,22894117,'Danielle','Holmquist','','15806 18th Ave W, A-208','','Lynnwood','WA','98087','US','2015-06-13 19:07:22','home','425-308-1520',1,'','2015-06-19 21:53:09','N'),(2912130,22894117,'Dina','Zanca','','160-47 82 Nd Street','','Howard Beach','NY','11414','US','2013-06-20 09:40:27','','917-589-3119',1,'','2015-06-02 13:37:36','N'),(4692351,22894117,'Kelly','Meldrum','','102 Muir','','Grosse Pointe Farms','MI','48236','US','2014-11-28 08:26:07','','313-410-5483',1,'','2015-06-02 13:10:58','N'),(5025968,22894117,'Carine','Werner','','11825 N 55th Pl','','Scottsdale','AZ','85254','US','2015-01-16 17:57:09','','702-809-8927',1,'','2015-06-03 20:24:35','N'),(5769543,22894117,'Lori','Andersen','','31802 Rogers Road','','Fulshear','TX','77441','US','2015-05-18 08:32:34','','281-384-3570',1,'','2015-05-18 08:32:34','N');
 /*!40000 ALTER TABLE `shipping` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -12,7 +12,7 @@
 
 LOCK TABLES `api_acl` WRITE;
 /*!40000 ALTER TABLE `api_acl` DISABLE KEYS */;
-INSERT INTO `api_acl` VALUES ('9f853ed83b5399d9089faae2f5dac070',3,'event/dotd','GET');
+INSERT  IGNORE INTO `api_acl` VALUES ('9f853ed83b5399d9089faae2f5dac070',3,'event/dotd','GET');
 /*!40000 ALTER TABLE `api_acl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

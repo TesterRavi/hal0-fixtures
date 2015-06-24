@@ -12,7 +12,7 @@
 
 LOCK TABLES `return_reasons` WRITE;
 /*!40000 ALTER TABLE `return_reasons` DISABLE KEYS */;
-INSERT INTO `return_reasons` VALUES (1,'Fit size too small',1,'Did not fit'),(2,'Fit size too large',1,'Did not fit'),(3,'Did not like what I ordered',1,'Did not like'),(4,'Item not as shown on website',2,'Warehouse'),(5,'Item not as described on website',2,'Warehouse'),(6,'Item is damaged',3,'Damage'),(7,'Wrong Item',6,'Warehouse'),(8,'Other',1,'Other'),(10,'Changed My Mind',18,'Cancel'),(21,'In warehouse, return n/a',21,'In warehouse, return n/a');
+INSERT  IGNORE INTO `return_reasons` VALUES (1,'Fit size too small',1,'Did not fit'),(2,'Fit size too large',1,'Did not fit'),(3,'Did not like what I ordered',1,'Did not like'),(4,'Item not as shown on website',2,'Warehouse'),(5,'Item not as described on website',2,'Warehouse'),(6,'Item is damaged',3,'Damage'),(7,'Wrong Item',6,'Warehouse'),(8,'Other',1,'Other'),(10,'Changed My Mind',18,'Cancel'),(21,'In warehouse, return n/a',21,'In warehouse, return n/a');
 /*!40000 ALTER TABLE `return_reasons` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -17,12 +17,13 @@ CREATE TABLE `solr_queue_event_status_changed` (
   `triggered_at` datetime NOT NULL,
   `locked_since` datetime DEFAULT NULL,
   `event_id` int(10) unsigned NOT NULL,
+  `event_status` int(10) unsigned NOT NULL,
   `connection_id` int(10) unsigned DEFAULT NULL,
   KEY `message_id` (`message_id`),
   KEY `FK_solr_queue_event_status_changed::events` (`event_id`),
   KEY `IDX_solr_queue_event_status_changed::locked_since_connection_id` (`locked_since`,`connection_id`),
   CONSTRAINT `FK_solr_queue_event_status_changed::events` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43885 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

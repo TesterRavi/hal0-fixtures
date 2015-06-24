@@ -21,7 +21,7 @@ CREATE TABLE `taxonomy_business_classification_quad_map` (
   KEY `quad_id` (`quad_id`),
   CONSTRAINT `taxonomy_business_classification_quad_map_fk_1` FOREIGN KEY (`business_classification_id`) REFERENCES `taxonomy_business_classification` (`id`),
   CONSTRAINT `taxonomy_business_classification_quad_map_fk_2` FOREIGN KEY (`quad_id`) REFERENCES `quads` (`quad_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4987 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2325 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

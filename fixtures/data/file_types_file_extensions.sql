@@ -12,7 +12,6 @@
 
 LOCK TABLES `file_types_file_extensions` WRITE;
 /*!40000 ALTER TABLE `file_types_file_extensions` DISABLE KEYS */;
-INSERT INTO `file_types_file_extensions` VALUES ('Child Safety PDF','pdf');
 /*!40000 ALTER TABLE `file_types_file_extensions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

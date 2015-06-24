@@ -27,7 +27,7 @@ CREATE TABLE `quads` (
   CONSTRAINT `FK_quads::departments` FOREIGN KEY (`department`) REFERENCES `departments` (`department`) ON UPDATE CASCADE,
   CONSTRAINT `FK_quads::subcategories` FOREIGN KEY (`subcategory`) REFERENCES `subcategories` (`subcategory`) ON UPDATE CASCADE,
   CONSTRAINT `FK_quads::verticals` FOREIGN KEY (`vertical`) REFERENCES `verticals` (`vertical`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3692 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3760 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

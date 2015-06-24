@@ -19,6 +19,8 @@ CREATE TABLE `wms_shipment_item_import` (
   `tracking_num` varchar(100) DEFAULT NULL,
   `ship_date` datetime DEFAULT NULL,
   `ship_method` varchar(250) DEFAULT NULL,
+  `shipment_weight` decimal(5,2) NOT NULL DEFAULT '1.00',
+  `process_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `import_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

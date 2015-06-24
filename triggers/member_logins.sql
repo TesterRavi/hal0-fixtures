@@ -18,7 +18,7 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `member_logins_ai` AFTER INSERT ON `member_logins` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 TRIGGER `member_logins_ai` AFTER INSERT ON `member_logins` FOR EACH ROW BEGIN
 
 REPLACE INTO members_last_login(member_id, login_date)
 VALUES (NEW.member_id, NEW.login_date);

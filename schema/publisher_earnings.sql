@@ -36,7 +36,7 @@ CREATE TABLE `publisher_earnings` (
   CONSTRAINT `FK_PublisherEarnings::ReturnItems` FOREIGN KEY (`return_item_id`) REFERENCES `return_items` (`item_id`),
   CONSTRAINT `FK_publisher_earnings::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_publisher_earnings::publisher_sites` FOREIGN KEY (`site_id`) REFERENCES `publisher_sites` (`site_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=92713 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

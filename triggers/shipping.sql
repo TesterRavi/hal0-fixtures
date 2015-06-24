@@ -18,7 +18,7 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER shipping_bi BEFORE INSERT ON shipping
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 TRIGGER shipping_bi BEFORE INSERT ON shipping
 FOR EACH ROW
 BEGIN
 
@@ -41,7 +41,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER shipping_bu BEFORE UPDATE ON shipping
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 TRIGGER shipping_bu BEFORE UPDATE ON shipping
 FOR EACH ROW
 BEGIN
 

@@ -30,7 +30,8 @@ CREATE TABLE `billing` (
   `processor` varchar(20) DEFAULT NULL,
   `card_number_mcrypt` text NOT NULL,
   `card_number` varchar(5) NOT NULL DEFAULT '',
-  `card_type` enum('na','visa','master','amex','discover') NOT NULL DEFAULT 'na',
+  `card_type` varchar(20) NOT NULL DEFAULT 'na',
+  `card_token` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `email` varchar(100) NOT NULL DEFAULT '',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `card_exp_year` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -41,14 +42,20 @@ CREATE TABLE `billing` (
   `payment_method` varchar(10) DEFAULT NULL,
   `verified` enum('Y','N') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`billing_id`),
-  UNIQUE KEY `state` (`state`,`member_id`,`first_name`,`last_name`,`address`,`address2`,`city`,`zipcode`,`phone`,`card_number`,`card_type`,`email`,`card_exp_year`,`card_exp_month`,`paypal_ba_id`,`bill_me_later_ref_id`),
+  UNIQUE KEY `state` (`state`,`member_id`,`first_name`,`last_name`,`address`,`address2`,`city`,`zipcode`,`phone`,`card_number`,`card_type`(1),`email`,`card_exp_year`,`card_exp_month`,`paypal_ba_id`,`bill_me_later_ref_id`),
   KEY `FK_billing::payment_methods` (`payment_method`),
   KEY `FK_billing::countries` (`country_iso`),
   KEY `FK_billing::members` (`member_id`),
+  KEY `FK_billing::processors` (`processor`),
+  KEY `FK_billing::billing_card_types` (`card_type`),
+  KEY `idx_phone` (`phone`),
+  KEY `idx_ln_cn` (`last_name`,`card_number`),
+  CONSTRAINT `FK_billing::billing_card_types` FOREIGN KEY (`card_type`) REFERENCES `billing_card_types` (`billing_card_type`),
   CONSTRAINT `FK_billing::countries` FOREIGN KEY (`country_iso`) REFERENCES `countries` (`country_iso`) ON UPDATE CASCADE,
   CONSTRAINT `FK_billing::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`),
-  CONSTRAINT `FK_billing::payment_methods` FOREIGN KEY (`payment_method`) REFERENCES `payment_methods` (`payment_method`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1599682 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 10240 kB; (`state`) REFER `hautelook_dev/states';
+  CONSTRAINT `FK_billing::payment_methods` FOREIGN KEY (`payment_method`) REFERENCES `payment_methods` (`payment_method`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_billing::processors` FOREIGN KEY (`processor`) REFERENCES `processors` (`processor`)
+) ENGINE=InnoDB AUTO_INCREMENT=6893363 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 10240 kB; (`state`) REFER `hautelook_dev/states';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

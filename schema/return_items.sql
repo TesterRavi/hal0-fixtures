@@ -35,6 +35,7 @@ CREATE TABLE `return_items` (
   `coupon` decimal(10,2) NOT NULL,
   `fcoupon` decimal(10,2) NOT NULL,
   `giftcard` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `nordstrom_giftcard` decimal(10,2) NOT NULL DEFAULT '0.00',
   `label_cost` decimal(10,2) NOT NULL DEFAULT '0.00',
   `give_back_coupon_flag` tinyint(1) NOT NULL DEFAULT '0',
   `timeframe` enum('during_sale','pre_ship','post_ship','post_event') DEFAULT NULL,
@@ -43,7 +44,7 @@ CREATE TABLE `return_items` (
   `receive_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `complete_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `void_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `tracking_num` varchar(25) NOT NULL DEFAULT '',
+  `tracking_num` varchar(30) NOT NULL DEFAULT '',
   `tracking_info_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `reason` varchar(45) DEFAULT NULL,
   `processor` enum('Authnet') NOT NULL DEFAULT 'Authnet',
@@ -51,6 +52,7 @@ CREATE TABLE `return_items` (
   `check_request_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `check_sent_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gift_return` tinyint(1) NOT NULL DEFAULT '0',
+  `created_date` datetime NOT NULL,
   PRIMARY KEY (`item_id`),
   KEY `FK_return_items::return_item_statuses` (`return_item_status`),
   KEY `FK_return_items::events` (`event_id`),
@@ -65,7 +67,7 @@ CREATE TABLE `return_items` (
   CONSTRAINT `FK_return_items::return_item_statuses` FOREIGN KEY (`return_item_status`) REFERENCES `return_item_statuses` (`return_item_status`),
   CONSTRAINT `FK_return_items::return_reason_types` FOREIGN KEY (`return_reason_type`) REFERENCES `return_reason_types` (`return_reason_type`) ON UPDATE CASCADE,
   CONSTRAINT `FK_return_items::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT COMMENT='InnoDB free: 487424 kB';
+) ENGINE=InnoDB AUTO_INCREMENT=21572866 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT COMMENT='InnoDB free: 487424 kB';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

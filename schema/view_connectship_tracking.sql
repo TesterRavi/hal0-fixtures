@@ -7,7 +7,6 @@
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-/*!50001 DROP TABLE IF EXISTS `view_connectship_tracking`*/;
 /*!50001 DROP VIEW IF EXISTS `view_connectship_tracking`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
@@ -16,8 +15,8 @@
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`hautelook`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_connectship_tracking` AS select `shipment_tracking`.`shipment_id` AS `shipment_id`,`shipment_tracking`.`tracking_num` AS `tracking_num`,`shipment_tracking`.`ship_date` AS `ship_date`,`shipment_tracking`.`delivery_estimate_date` AS `delivery_estimate_date`,`shipment_tracking`.`source` AS `source` from `shipment_tracking` */;
+/*!50013 DEFINER=`root`@`10.0.0.220` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_connectship_tracking` AS select `shipment_tracking`.`shipment_id` AS `shipment_id`,`shipment_tracking`.`tracking_num` AS `tracking_num`,`shipment_tracking`.`ship_date` AS `ship_date`,`shipment_tracking`.`delivery_estimate_date` AS `delivery_estimate_date`,`shipment_tracking`.`source` AS `source`,`shipment_tracking`.`shipment_weight` AS `shipment_weight` from `shipment_tracking` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;

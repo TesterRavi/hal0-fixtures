@@ -37,7 +37,7 @@ CREATE TABLE `email_queue` (
   KEY `email_status` (`email_status`),
   CONSTRAINT `FK_email_queueee::email_templates` FOREIGN KEY (`email_template`) REFERENCES `email_templates` (`email_template`),
   CONSTRAINT `FK_email_queueee::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39192350 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

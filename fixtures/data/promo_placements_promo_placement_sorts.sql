@@ -12,7 +12,6 @@
 
 LOCK TABLES `promo_placements_promo_placement_sorts` WRITE;
 /*!40000 ALTER TABLE `promo_placements_promo_placement_sorts` DISABLE KEYS */;
-INSERT INTO `promo_placements_promo_placement_sorts` VALUES ('bottom_promo',1),('grid_promo',1),('bottom_promo',2),('grid_promo',2),('bottom_promo',3);
 /*!40000 ALTER TABLE `promo_placements_promo_placement_sorts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

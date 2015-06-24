@@ -28,9 +28,10 @@ CREATE TABLE `member_business_map` (
   `created_by_user_id` int(11) NOT NULL,
   `created_ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`member_division_cd`,`member_department_cd`,`member_class_cd`,`member_subclass_cd`,`business_division_id`,`business_department_id`,`business_department_cd`,`business_class_id`,`business_class_cd`,`business_subclass_id`,`business_subclass_cd`),
+  KEY `unique_business_classification` (`business_division_id`,`business_department_id`,`business_class_id`,`business_subclass_id`),
   KEY `fk_member_business_map2` (`business_division_id`,`business_department_id`,`business_department_cd`,`business_class_id`,`business_class_cd`,`business_subclass_id`,`business_subclass_cd`),
-  CONSTRAINT `fk_member_business_map2` FOREIGN KEY (`business_division_id`, `business_department_id`, `business_department_cd`, `business_class_id`, `business_class_cd`, `business_subclass_id`, `business_subclass_cd`) REFERENCES `business_classification` (`business_division_id`, `business_department_id`, `business_department_cd`, `business_class_id`, `business_class_cd`, `business_subclass_id`, `business_subclass_cd`),
-  CONSTRAINT `fk_member_business_map` FOREIGN KEY (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) REFERENCES `member_classification` (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) ON UPDATE CASCADE
+  CONSTRAINT `fk_member_business_map` FOREIGN KEY (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) REFERENCES `member_classification` (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_member_business_map2` FOREIGN KEY (`business_division_id`, `business_department_id`, `business_department_cd`, `business_class_id`, `business_class_cd`, `business_subclass_id`, `business_subclass_cd`) REFERENCES `business_classification` (`business_division_id`, `business_department_id`, `business_department_cd`, `business_class_id`, `business_class_cd`, `business_subclass_id`, `business_subclass_cd`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

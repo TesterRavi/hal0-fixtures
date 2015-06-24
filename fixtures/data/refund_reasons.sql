@@ -12,7 +12,6 @@
 
 LOCK TABLES `refund_reasons` WRITE;
 /*!40000 ALTER TABLE `refund_reasons` DISABLE KEYS */;
-INSERT INTO `refund_reasons` VALUES ('Freight Refund','Shipping refund',1),('No reason','Other',1),('Order Tender Change','Tender change',1),('Refund Freight','Shipping refund',1),('Refund Gift Card to HL Credit','Tender change',1),('Refund Gift Card to Original Payment','Tender change',1),('Refund HL Credit to Original Payment','Tender change',1),('Refund Restocking Fee','Return adjustment',1),('Refund Type Change','Other',1),('Return Tender Change','Tender change',1),('RMA Refund','Return shipping refund',1),('Subtotal Refund','Price Adjustment',1),('Surcharge Refund','Surcharge refund',1),('Taxes Refund','Tax refund',1),('Tender Change','Tender change',1);
 /*!40000 ALTER TABLE `refund_reasons` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

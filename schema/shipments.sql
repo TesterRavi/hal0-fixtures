@@ -16,14 +16,15 @@ CREATE TABLE `shipments` (
   `shipment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `delivery_method` varchar(25) NOT NULL DEFAULT '',
   `document_set` int(10) unsigned DEFAULT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_date` datetime NOT NULL,
+  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`shipment_id`),
   KEY `FK_shipments::delivery_methods` (`delivery_method`),
   KEY `create_date` (`create_date`),
   KEY `FK_shipments::document_sets` (`document_set`),
   CONSTRAINT `FK_shipments::delivery_methods` FOREIGN KEY (`delivery_method`) REFERENCES `delivery_methods` (`delivery_method`) ON UPDATE CASCADE,
   CONSTRAINT `FK_shipments::document_sets` FOREIGN KEY (`document_set`) REFERENCES `document_sets` (`document_set`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28012881 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

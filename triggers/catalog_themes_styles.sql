@@ -12,17 +12,17 @@
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = latin1 */ ;
+/*!50003 SET character_set_results = latin1 */ ;
+/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_catalog_themes_styles_insert AFTER INSERT ON catalog_themes_styles
 FOR EACH ROW
-  BEGIN
-    INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (NEW.style_id, NOW());
-  END */;;
+BEGIN
+INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (NEW.style_id, NOW());
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -31,22 +31,21 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = latin1 */ ;
+/*!50003 SET character_set_results = latin1 */ ;
+/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_catalog_themes_styles_update AFTER UPDATE ON catalog_themes_styles
 FOR EACH ROW
-  BEGIN
-    INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (OLD.style_id, NOW());
-
-    IF NOT (NEW.style_id <=> OLD.style_id)
-    THEN
-      INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (NEW.style_id, NOW());
-    END IF;
-  END */;;
+BEGIN
+INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (OLD.style_id, NOW());
+IF NOT (NEW.style_id <=> OLD.style_id)
+THEN
+INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (NEW.style_id, NOW());
+END IF;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -55,17 +54,17 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = latin1 */ ;
+/*!50003 SET character_set_results = latin1 */ ;
+/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_catalog_themes_styles_delete AFTER DELETE ON catalog_themes_styles
 FOR EACH ROW
-  BEGIN
-    INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (OLD.style_id, NOW());
-  END */;;
+BEGIN
+INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (OLD.style_id, NOW());
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;

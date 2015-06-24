@@ -32,7 +32,7 @@ CREATE TABLE `members_optin_log` (
   CONSTRAINT `FK_members_optin_log::members_optin_sources` FOREIGN KEY (`members_optin_source`) REFERENCES `members_optin_sources` (`members_optin_source`),
   CONSTRAINT `FK_members_optin_log::optins` FOREIGN KEY (`optin`) REFERENCES `optins` (`optin`),
   CONSTRAINT `FK_members_optin_log::rack_optins` FOREIGN KEY (`rack_optin`) REFERENCES `optins` (`optin`)
-) ENGINE=InnoDB AUTO_INCREMENT=975995 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29834211 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

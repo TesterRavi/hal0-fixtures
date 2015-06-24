@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS `wms_shipment_item_import_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wms_shipment_item_import_log` (
+  `wms_shipment_item_import_log_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `high_jump_container` varchar(34) NOT NULL DEFAULT '',
   `order_id` varchar(30) DEFAULT NULL,
   `sku` varchar(30) DEFAULT NULL,
@@ -19,9 +20,14 @@ CREATE TABLE `wms_shipment_item_import_log` (
   `tracking_num` varchar(100) DEFAULT NULL,
   `ship_date` datetime DEFAULT NULL,
   `ship_method` varchar(250) DEFAULT NULL,
+  `shipment_weight` decimal(5,2) NOT NULL DEFAULT '1.00',
   `import_date` datetime DEFAULT NULL,
-  `log_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `log_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`wms_shipment_item_import_log_id`),
+  KEY `order_id` (`order_id`,`event_id`,`sku`),
+  KEY `high_jump_container` (`high_jump_container`),
+  KEY `tracking_num` (`tracking_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=28547872 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

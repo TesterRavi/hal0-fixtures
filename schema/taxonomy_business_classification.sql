@@ -22,7 +22,7 @@ CREATE TABLE `taxonomy_business_classification` (
   `number` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_22BE07D5727ACA70` (`parent_id`),
-  CONSTRAINT `FK_22BE07D5727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `taxonomy_business_classification` (`id`) ON DELETE CASCADE
+  CONSTRAINT `taxonomy_business_classification_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `taxonomy_business_classification` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3405 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

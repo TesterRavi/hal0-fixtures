@@ -18,11 +18,11 @@ CREATE TABLE `solr_queue_populate_style` (
   `locked_since` datetime DEFAULT NULL,
   `style_id` int(10) unsigned NOT NULL,
   `connection_id` int(10) unsigned DEFAULT NULL,
-  KEY `message_id` (`message_id`),
+  PRIMARY KEY (`message_id`),
   KEY `FK_solr_queue_populate_style::styles` (`style_id`),
   KEY `IDX_solr_queue_populate_style::locked_since_connection_id` (`locked_since`,`connection_id`),
   CONSTRAINT `FK_solr_queue_populate_style::styles` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=364 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20438504 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

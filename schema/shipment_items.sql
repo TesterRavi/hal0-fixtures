@@ -21,6 +21,7 @@ CREATE TABLE `shipment_items` (
   `ship_method_id` int(10) unsigned NOT NULL DEFAULT '3',
   `print_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modify_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_date` datetime NOT NULL,
   PRIMARY KEY (`shipment_id`,`order_id`,`sku`,`event_id`),
   KEY `FK_shipment_items::orders` (`order_id`),
   KEY `FK_shipment_items::skus` (`sku`),

@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS `inventory_accuracy_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `inventory_accuracy_log` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `event_id` int(10) unsigned NOT NULL,
   `sku` int(10) unsigned NOT NULL,
   `previous_available` int(10) unsigned NOT NULL,
@@ -25,9 +26,10 @@ CREATE TABLE `inventory_accuracy_log` (
   `color` varchar(100) NOT NULL,
   `size` varchar(20) NOT NULL,
   `was_inventory_active` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `event_start_date` (`event_start_date`),
-  KEY `event_id` (`event_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `event_id_2` (`event_id`,`sku`)
+) ENGINE=InnoDB AUTO_INCREMENT=20523573 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

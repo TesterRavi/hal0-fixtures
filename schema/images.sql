@@ -26,7 +26,7 @@ CREATE TABLE `images` (
   KEY `FK_Styles:style_id::Images:style_id` (`style_id`),
   KEY `image_create_date` (`image_create_date`,`image_id`),
   CONSTRAINT `C_Styles:style_id::Images:style_id` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1128064 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3987988 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

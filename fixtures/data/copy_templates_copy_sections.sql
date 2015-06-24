@@ -12,7 +12,6 @@
 
 LOCK TABLES `copy_templates_copy_sections` WRITE;
 /*!40000 ALTER TABLE `copy_templates_copy_sections` DISABLE KEYS */;
-INSERT INTO `copy_templates_copy_sections` VALUES ('Sole Society Credit','Product Fiber Content'),('One Size Large Style','Production Additionial Information'),('One Size Small Style','Production Additionial Information'),('True to Size Style','Production Additionial Information'),('Bottoms Sold Separately Note','Production Description'),('Drop Ship Note','Production Description'),('Excluding California Note','Production Description'),('Excluding Canada Note','Production Description'),('Pre-Owned Note','Production Description'),('Tops Sold Separately Note','Production Description');
 /*!40000 ALTER TABLE `copy_templates_copy_sections` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

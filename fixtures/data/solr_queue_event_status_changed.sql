@@ -12,6 +12,7 @@
 
 LOCK TABLES `solr_queue_event_status_changed` WRITE;
 /*!40000 ALTER TABLE `solr_queue_event_status_changed` DISABLE KEYS */;
+INSERT  IGNORE INTO `solr_queue_event_status_changed` VALUES (43883,'2015-06-16 18:36:14',NULL,89016,0,NULL),(43884,'2015-06-16 18:36:38',NULL,89018,0,NULL);
 /*!40000 ALTER TABLE `solr_queue_event_status_changed` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

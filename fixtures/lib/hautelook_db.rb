@@ -10,6 +10,7 @@ class HautelookDb
     @transformationfiles_dir = "#{repo_dir}/fixtures/transformations"
     @table_triggers_dir = "#{repo_dir}/triggers"
     @db = Db.new
+    @install = InstallationMode.new
   end
 
   def apply_transformations
@@ -30,6 +31,7 @@ class HautelookDb
   end
 
   def export
+    check_contribution
     export_schema
     export_tables
     export_sprocs
@@ -83,7 +85,20 @@ class HautelookDb
   end
 
   def reset
+    puts "resetting DB"
     db.reset
+  end
+
+  def enable_contribution
+    mode.enable_mode @repo_dir
+  end
+
+  def disable_contribution
+    mode.disable_mode @repo_dir
+  end
+
+  def check_contribution
+    mode.check_mode @repo_dir
   end
 
   private
@@ -95,21 +110,27 @@ class HautelookDb
       @db ||= Db.new
     end
 
+    def mode
+      @install ||= InstallationMode.new
+    end
+
+
     def export_schema
+      puts "exporting-schema"
       table_names.each do |t|
-        puts "exporting-schema: #{t}"
         filename = schema_filename(t)
         raise "error dumping schema for table #{t} to #{filename}" unless db.export.schema(t, filename)
       end
     end
 
     def export_sprocs
+      puts "exporting sprocs"
       db.export.sprocs @sprocfile
     end
 
     def export_tables
+      puts "exporting-data-triggers"
       table_names.each do |t|
-        puts "exporting-data-triggers: #{t}"
         filename = table_data_filename(t)
         raise "error dumping data for table #{t} to #{filename}" unless db.export.table_data(t, filename)
         filename = table_triggers_filename(t)

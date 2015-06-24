@@ -17,13 +17,12 @@ CREATE TABLE `solr_queue_inventory` (
   `triggered_at` datetime NOT NULL,
   `locked_since` datetime DEFAULT NULL,
   `sku` int(10) unsigned NOT NULL,
-  `event_id` int(10) unsigned NOT NULL DEFAULT '38568',
   `connection_id` int(10) unsigned DEFAULT NULL,
-  KEY `message_id` (`message_id`),
+  `event_id` int(10) unsigned NOT NULL DEFAULT '38568',
+  PRIMARY KEY (`message_id`),
   KEY `FK_solr_queue_inventory::skus` (`sku`),
-  KEY `IDX_solr_queue_inventory::locked_since_connection_id` (`locked_since`,`connection_id`),
-  CONSTRAINT `FK_solr_queue_inventory::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=29200 DEFAULT CHARSET=latin1;
+  KEY `IDX_solr_queue_inventory::locked_since_connection_id` (`locked_since`,`connection_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=154131338 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

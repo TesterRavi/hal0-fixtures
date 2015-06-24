@@ -18,25 +18,11 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_styles_update AFTER UPDATE ON styles
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_styles_created_at BEFORE INSERT ON styles
 FOR EACH ROW
-  BEGIN
-    INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (NEW.style_id, NOW());
-
-    IF NOT (OLD.quad_id <=> NEW.quad_id)
-    THEN
-      
-      CALL business_skus_map_delete_style(OLD.style_id);
-      CALL member_skus_map_delete_style(OLD.style_id);
-
-      IF NEW.quad_id IS NOT NULL
-      THEN
-        
-        CALL business_skus_map_put_style_quad(NEW.style_id, NEW.quad_id);
-        CALL member_skus_map_put_style_quad(NEW.style_id, NEW.quad_id);
-      END IF;
-    END IF;
-  END */;;
+BEGIN
+SET NEW.created_at = NOW();
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -45,16 +31,16 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = latin1 */ ;
+/*!50003 SET character_set_results = latin1 */ ;
+/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_styles_delete AFTER DELETE ON styles
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 TRIGGER solr_queue_styles_update AFTER UPDATE ON styles
 FOR EACH ROW
   BEGIN
-    DELETE FROM solr_queue_populate_style WHERE style_id = OLD.style_id;
+    INSERT INTO solr_queue_populate_style (style_id, triggered_at) VALUES (NEW.style_id, NOW());
   END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;

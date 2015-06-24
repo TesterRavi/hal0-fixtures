@@ -12,7 +12,6 @@
 
 LOCK TABLES `brands_measurement_guides` WRITE;
 /*!40000 ALTER TABLE `brands_measurement_guides` DISABLE KEYS */;
-INSERT INTO `brands_measurement_guides` VALUES (338,'MeasuringGuides_Kids.png'),(338,'MeasuringGuides_Men.png'),(338,'MeasuringGuides_Women.png');
 /*!40000 ALTER TABLE `brands_measurement_guides` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

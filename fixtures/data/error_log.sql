@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 5.5.34, for Linux (x86_64)
---
--- Host: localhost    Database: hautelook
--- ------------------------------------------------------
--- Server version	5.5.34
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,34 +9,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `error_log`
---
-
-DROP TABLE IF EXISTS `error_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `error_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timestamp` datetime NOT NULL,
-  `priority_name` varchar(10) NOT NULL,
-  `priority` int(2) NOT NULL,
-  `message` text NOT NULL,
-  `pid` int(11) NOT NULL,
-  `memory_usage` int(11) NOT NULL,
-  `server_name` varchar(32) NOT NULL,
-  `query` varchar(255) DEFAULT NULL,
-  `browser` varchar(100) NOT NULL,
-  `url` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  KEY `timestamp` (`timestamp`,`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `error_log`
---
 
 LOCK TABLES `error_log` WRITE;
 /*!40000 ALTER TABLE `error_log` DISABLE KEYS */;
@@ -57,4 +24,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-24  0:05:23

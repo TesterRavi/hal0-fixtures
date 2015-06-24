@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS `returns`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `returns` (
   `return_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `request_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `request_date` datetime NOT NULL,
   `creation_method` enum('manual','automated') CHARACTER SET utf8 NOT NULL DEFAULT 'manual',
   `ship_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `received_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -44,6 +44,7 @@ CREATE TABLE `returns` (
   `comments` text CHARACTER SET utf8,
   `notes` text CHARACTER SET utf8,
   `restocking_fee` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `modify_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`return_id`),
   KEY `FK_returns::members` (`member_id`),
   KEY `FK_returns::shipping` (`shipping_id`),
@@ -56,7 +57,7 @@ CREATE TABLE `returns` (
   CONSTRAINT `FK_returns::return_ship_methods` FOREIGN KEY (`return_ship_method`) REFERENCES `return_ship_methods` (`return_ship_method`),
   CONSTRAINT `FK_returns::shipping` FOREIGN KEY (`shipping_id`) REFERENCES `shipping` (`shipping_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_returns::ship_methods` FOREIGN KEY (`ship_method_id`) REFERENCES `ship_methods` (`ship_method_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC COMMENT='InnoDB free: 148480 kB';
+) ENGINE=InnoDB AUTO_INCREMENT=5277882 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC COMMENT='InnoDB free: 148480 kB';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

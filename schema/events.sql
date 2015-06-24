@@ -111,6 +111,7 @@ CREATE TABLE `events` (
   `production_due_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `primary_production_source` varchar(30) DEFAULT NULL,
   `production_approval_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `prepend_brand_to_style` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`event_id`),
   UNIQUE KEY `priority` (`priority`,`parent_id`),
   KEY `end_date` (`end_date`),
@@ -162,7 +163,7 @@ CREATE TABLE `events` (
   CONSTRAINT `FK_events::shipping_calc_rules` FOREIGN KEY (`shipping_calc_rule`) REFERENCES `shipping_calc_rules` (`shipping_calc_rule`) ON UPDATE CASCADE,
   CONSTRAINT `FK_events::suppliers` FOREIGN KEY (`supplier`) REFERENCES `suppliers` (`supplier`),
   CONSTRAINT `FK_events::verticals` FOREIGN KEY (`vertical`) REFERENCES `verticals` (`vertical`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=38569 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=91648 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

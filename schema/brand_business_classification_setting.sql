@@ -22,7 +22,7 @@ CREATE TABLE `brand_business_classification_setting` (
   KEY `FK_brand_biz_cls_setting::business_classification_id` (`business_classification_id`),
   CONSTRAINT `FK_brand_biz_cls_setting::brand_id` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`) ON DELETE CASCADE,
   CONSTRAINT `FK_brand_biz_cls_setting::business_classification_id` FOREIGN KEY (`business_classification_id`) REFERENCES `taxonomy_business_classification` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=166775 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

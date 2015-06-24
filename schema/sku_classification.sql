@@ -17,11 +17,12 @@ CREATE TABLE `sku_classification` (
   `sku` int(10) unsigned NOT NULL,
   `business_member_classification_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_99C09678F9038C4` (`sku`),
-  KEY `IDX_99C096782A86559F` (`business_member_classification_id`),
-  CONSTRAINT `FK_99C096782A86559F` FOREIGN KEY (`business_member_classification_id`) REFERENCES `taxonomy_business_member_classification` (`id`),
-  CONSTRAINT `FK_99C09678F9038C5` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  UNIQUE KEY `IDX_99C09678F9038C42` (`sku`,`business_member_classification_id`),
+  UNIQUE KEY `sku` (`sku`),
+  KEY `IDX_99C096782A86559F1` (`business_member_classification_id`),
+  CONSTRAINT `sku_classification_iunique_bfk_2` FOREIGN KEY (`business_member_classification_id`) REFERENCES `taxonomy_business_member_classification` (`id`),
+  CONSTRAINT `sku_classification_ibfk_1` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`)
+) ENGINE=InnoDB AUTO_INCREMENT=12576984 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

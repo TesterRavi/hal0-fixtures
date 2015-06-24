@@ -18,7 +18,7 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER events_styles_bi BEFORE INSERT ON events_styles FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 TRIGGER events_styles_bi BEFORE INSERT ON events_styles FOR EACH ROW
 BEGIN
 
 DECLARE v_coa VARCHAR(50) DEFAULT NULL;

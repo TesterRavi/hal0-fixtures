@@ -29,7 +29,7 @@ CREATE TABLE `dpf_partner_track` (
   CONSTRAINT `C_DpfPartnerTrack:inventory_id::Inventory:inventory_id` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`),
   CONSTRAINT `C_DpfPartnerTrack:member_id::Members:member_id` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`),
   CONSTRAINT `C_DpfPartnerTrack:partner_sid::DpfPartnerAccounts:partner_sid` FOREIGN KEY (`partner_sid`) REFERENCES `dpf_partner_accounts` (`partner_sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4309 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

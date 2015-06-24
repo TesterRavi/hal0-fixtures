@@ -12,7 +12,6 @@
 
 LOCK TABLES `exchange_rates` WRITE;
 /*!40000 ALTER TABLE `exchange_rates` DISABLE KEYS */;
-INSERT INTO `exchange_rates` VALUES ('AU',0.973526,'2012-10-16 13:35:05');
 /*!40000 ALTER TABLE `exchange_rates` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

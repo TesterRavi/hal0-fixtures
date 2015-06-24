@@ -12,7 +12,6 @@
 
 LOCK TABLES `service_settings` WRITE;
 /*!40000 ALTER TABLE `service_settings` DISABLE KEYS */;
-INSERT INTO `service_settings` VALUES ('DGAW Omniture Tracking','off','2010-03-19 17:55:00',294723),('Omniture Clicks','on','2010-05-19 23:13:30',294723),('Omniture Clicks','on','2010-05-20 17:19:00',294723),('Omniture Clicks','on','2010-05-20 20:43:08',294723),('Omniture Clicks','off','2010-03-19 17:55:00',294723),('Omniture Clicks','off','2010-05-19 23:35:13',294723),('Omniture Clicks','off','2010-05-20 20:42:18',294723),('Omniture Clicks','on','2010-05-21 18:54:26',1103203),('Omniture Clicks','on','2010-05-22 20:47:50',1103203),('Omniture Clicks','on','2010-05-23 04:09:57',1103203),('Omniture Clicks','on','2010-05-24 14:46:44',1103203),('Omniture Clicks','off','2010-05-20 20:44:09',1103203),('Omniture Clicks','off','2010-05-21 19:37:04',1103203),('Omniture Clicks','off','2010-05-23 04:05:23',1103203),('Omniture Clicks','off','2010-05-23 05:31:53',1103203),('Omniture Clicks','off','2010-05-24 17:32:21',1103203);
 /*!40000 ALTER TABLE `service_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

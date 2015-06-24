@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 5.5.34, for Linux (x86_64)
---
--- Host: localhost    Database: hautelook
--- ------------------------------------------------------
--- Server version	5.5.34
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,28 +10,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `hazmat_ship_methods`
---
-
-DROP TABLE IF EXISTS `hazmat_ship_methods`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hazmat_ship_methods` (
-  `hazmat_ship_method` varchar(10) NOT NULL,
-  `description` varchar(100) NOT NULL DEFAULT '',
-  `active` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`hazmat_ship_method`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `hazmat_ship_methods`
---
-
 LOCK TABLES `hazmat_ship_methods` WRITE;
 /*!40000 ALTER TABLE `hazmat_ship_methods` DISABLE KEYS */;
-INSERT INTO `hazmat_ship_methods` VALUES ('air','ORM-D Air',1),('ground','ORM-D Ground',1);
+INSERT  IGNORE INTO `hazmat_ship_methods` VALUES ('air','ORM-D Air',1),('ground','ORM-D Ground',1);
 /*!40000 ALTER TABLE `hazmat_ship_methods` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +25,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-24  0:05:08

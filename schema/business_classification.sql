@@ -25,11 +25,14 @@ CREATE TABLE `business_classification` (
   `created_by_user_id` int(11) NOT NULL,
   `created_ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`business_division_id`,`business_department_id`,`business_department_cd`,`business_class_id`,`business_class_cd`,`business_subclass_id`,`business_subclass_cd`),
+  UNIQUE KEY `unique_business_classification` (`business_division_id`,`business_department_id`,`business_class_id`,`business_subclass_id`),
   KEY `fk_business_classification_business_department_id` (`business_department_id`),
   KEY `fk_business_classification_class_id` (`business_class_id`),
+  KEY `fk_business_classification_subclass_id` (`business_subclass_id`),
   CONSTRAINT `fk_business_classification_business_department_id` FOREIGN KEY (`business_department_id`) REFERENCES `business_department` (`business_department_id`),
   CONSTRAINT `fk_business_classification_business_division_id` FOREIGN KEY (`business_division_id`) REFERENCES `business_division` (`business_division_id`),
-  CONSTRAINT `fk_business_classification_class_id` FOREIGN KEY (`business_class_id`) REFERENCES `business_class` (`business_class_id`)
+  CONSTRAINT `fk_business_classification_class_id` FOREIGN KEY (`business_class_id`) REFERENCES `business_class` (`business_class_id`),
+  CONSTRAINT `fk_business_classification_subclass_id` FOREIGN KEY (`business_subclass_id`) REFERENCES `business_subclass` (`business_subclass_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

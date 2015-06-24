@@ -16,8 +16,8 @@ CREATE TABLE `fashion_rewards_bonus` (
   `points` char(1) NOT NULL DEFAULT '1',
   `property_id` int(10) unsigned NOT NULL,
   `bonus_date` date NOT NULL,
-  `created_date` datetime NOT NULL,
-  `modified_date` datetime NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`bonus_date`,`property_id`),
   KEY `FK_nordstrom_properties::nordstrom_properties` (`property_id`),
   CONSTRAINT `FK_nordstrom_properties::nordstrom_properties` FOREIGN KEY (`property_id`) REFERENCES `nordstrom_properties` (`property_id`)

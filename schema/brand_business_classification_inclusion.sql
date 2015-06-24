@@ -19,9 +19,9 @@ CREATE TABLE `brand_business_classification_inclusion` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `IDX_brand_business_classification_inclusion` (`brand_id`,`taxonomy_business_classification_id`),
   KEY `FK_brand_bus_cls_inclusion::taxonomy_business_classification_id` (`taxonomy_business_classification_id`),
-  CONSTRAINT `FK_brand_bus_cls_inclusion::taxonomy_business_classification_id` FOREIGN KEY (`taxonomy_business_classification_id`) REFERENCES `taxonomy_business_classification` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_brand_bus_cls_inclusion::brand_id` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  CONSTRAINT `brand_business_classification_inclusion_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`) ON DELETE CASCADE,
+  CONSTRAINT `brand_business_classification_inclusion_ibfk_2` FOREIGN KEY (`taxonomy_business_classification_id`) REFERENCES `taxonomy_business_classification` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1414 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

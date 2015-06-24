@@ -20,9 +20,9 @@ CREATE TABLE `taxonomy_business_member_classification` (
   UNIQUE KEY `taxonomy_business_member` (`business_classification_id`,`member_classification_id`),
   KEY `IDX_F37E3B89C2B35B26` (`business_classification_id`),
   KEY `IDX_F37E3B8963DFF5A1` (`member_classification_id`),
-  CONSTRAINT `FK_99C096782A86559H` FOREIGN KEY (`member_classification_id`) REFERENCES `taxonomy_member_classification` (`id`),
-  CONSTRAINT `FK_99C096782A86559G` FOREIGN KEY (`business_classification_id`) REFERENCES `taxonomy_business_classification` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  CONSTRAINT `taxonomy_business_member_classification_ibfk_1` FOREIGN KEY (`business_classification_id`) REFERENCES `taxonomy_business_classification` (`id`),
+  CONSTRAINT `taxonomy_business_member_classification_ibfk_2` FOREIGN KEY (`member_classification_id`) REFERENCES `taxonomy_member_classification` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2331 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

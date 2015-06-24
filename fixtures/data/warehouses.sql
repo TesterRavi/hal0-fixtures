@@ -12,7 +12,7 @@
 
 LOCK TABLES `warehouses` WRITE;
 /*!40000 ALTER TABLE `warehouses` DISABLE KEYS */;
-INSERT INTO `warehouses` VALUES (1,'Hautelook - CA','2733 Carrier Ave','','Commerce','CA','US','90040','Tracey Rico','1-213-741-1890 x146 tracey.rico@hautelook.com','active'),(2,'Bergen - NJ','c/o Bergen Shippers','7373 Westside Ave.','North Bergen','NJ','US','07047','Tracey Rico','1-213-741-1890 x146 tracey.rico@hautelook.com','active'),(3,'CASI','','','','CA','US','','','','active');
+INSERT  IGNORE INTO `warehouses` VALUES (1,'Hautelook - CA','2733 Carrier Ave','','Commerce','CA','US','90040','Tracey Rico','1-213-741-1890 x146 tracey.rico@hautelook.com','active'),(2,'Bergen - NJ','c/o Bergen Shippers','7373 Westside Ave.','North Bergen','NJ','US','07047','Tracey Rico','1-213-741-1890 x146 tracey.rico@hautelook.com','active'),(3,'CASI','','','','CA','US','','','','active');
 /*!40000 ALTER TABLE `warehouses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

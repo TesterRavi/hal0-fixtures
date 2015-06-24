@@ -31,9 +31,9 @@ CREATE TABLE `merchant_account_transactions` (
   KEY `FK_merchant_account_transactions::orders` (`order_id`),
   KEY `FK_merchant_account_transactions::processors` (`processor`),
   CONSTRAINT `FK_merchant_account_transactions::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`),
+  CONSTRAINT `FK_merchant_account_transactions::returns` FOREIGN KEY (`return_id`) REFERENCES `returns` (`return_id`),
   CONSTRAINT `FK_merchant_account_transactions::orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  CONSTRAINT `FK_merchant_account_transactions::processors` FOREIGN KEY (`processor`) REFERENCES `processors` (`processor`),
-  CONSTRAINT `FK_merchant_account_transactions::returns` FOREIGN KEY (`return_id`) REFERENCES `returns` (`return_id`)
+  CONSTRAINT `FK_merchant_account_transactions::processors` FOREIGN KEY (`processor`) REFERENCES `processors` (`processor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

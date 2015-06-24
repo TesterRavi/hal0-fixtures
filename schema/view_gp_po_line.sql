@@ -7,7 +7,6 @@
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-/*!50001 DROP TABLE IF EXISTS `view_gp_po_line`*/;
 /*!50001 DROP VIEW IF EXISTS `view_gp_po_line`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
@@ -16,7 +15,7 @@
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`hautelook`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`root`@`10.0.0.220` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_gp_po_line` AS select `view_gp_po_header_internal`.`po_id` AS `po_id`,`view_gp_po_header_internal`.`sku` AS `sku`,`view_gp_po_header_internal`.`style_num` AS `style_num`,`view_gp_po_header_internal`.`cost` AS `cost`,`view_gp_po_header_internal`.`line_nbr` AS `line_nbr`,`view_gp_po_header_internal`.`purchased` AS `ordered` from `view_gp_po_header_internal` order by `view_gp_po_header_internal`.`po_id`,`view_gp_po_header_internal`.`line_nbr` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;

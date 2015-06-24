@@ -31,6 +31,8 @@ CREATE TABLE `order_items` (
   `short_email_sent` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `returnable` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `modify_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `wms_sent_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_date` datetime NOT NULL,
   PRIMARY KEY (`item_id`),
   KEY `FK_order_items::orders` (`order_id`),
   KEY `FK_order_items::events` (`event_id`),
@@ -39,7 +41,7 @@ CREATE TABLE `order_items` (
   CONSTRAINT `FK_order_items::events` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_order_items::orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_order_items::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14947203 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=51013967 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

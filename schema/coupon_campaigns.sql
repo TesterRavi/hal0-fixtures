@@ -22,7 +22,7 @@ CREATE TABLE `coupon_campaigns` (
   PRIMARY KEY (`coupon_campaign_id`),
   KEY `FK_coupon_campaigns::campaigns` (`sid`),
   CONSTRAINT `FK_coupon_campaigns::campaigns` FOREIGN KEY (`sid`) REFERENCES `campaigns` (`sid`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COMMENT='Groups coupons together';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1 COMMENT='Groups coupons together';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

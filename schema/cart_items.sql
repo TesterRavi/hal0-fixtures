@@ -26,13 +26,13 @@ CREATE TABLE `cart_items` (
   PRIMARY KEY (`cart_id`),
   UNIQUE KEY `member_id` (`member_id`,`event_id`,`sku`,`viewed`),
   KEY `FK_cart_items::cart_item_statuses` (`cart_item_status`),
-  KEY `FK_cart_items:events` (`event_id`),
   KEY `FK_cart_items:skus` (`sku`),
+  KEY `event_id__sku` (`event_id`,`sku`),
   CONSTRAINT `FK_cart_items::cart_item_statuses` FOREIGN KEY (`cart_item_status`) REFERENCES `cart_item_statuses` (`cart_item_status`),
   CONSTRAINT `FK_cart_items:events` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_cart_items:members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_cart_items:skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=174722057 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

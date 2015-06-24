@@ -23,7 +23,7 @@ CREATE TABLE `member_skus_map` (
   `created_ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`sku`,`member_division_cd`,`member_department_cd`,`member_class_cd`,`member_subclass_cd`),
   KEY `fk_member_skus_map` (`member_division_cd`,`member_department_cd`,`member_class_cd`,`member_subclass_cd`),
-  CONSTRAINT `fk_member_skus_map` FOREIGN KEY (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) REFERENCES `member_classification` (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`)
+  CONSTRAINT `fk_member_skus_map` FOREIGN KEY (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) REFERENCES `member_classification` (`member_division_cd`, `member_department_cd`, `member_class_cd`, `member_subclass_cd`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

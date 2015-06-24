@@ -36,7 +36,7 @@ CREATE TABLE `shipping` (
   KEY `state` (`state`,`country_iso`,`shipping_id`),
   CONSTRAINT `FK_shipping::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_shipping::states` FOREIGN KEY (`state`, `country_iso`) REFERENCES `states` (`state`, `country_iso`)
-) ENGINE=InnoDB AUTO_INCREMENT=1526202 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5906503 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

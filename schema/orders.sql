@@ -20,7 +20,7 @@ CREATE TABLE `orders` (
   `billing_id` int(10) unsigned NOT NULL,
   `shipping_id` int(10) unsigned NOT NULL DEFAULT '0',
   `ship_method_id` int(10) unsigned NOT NULL,
-  `payment_method` varchar(10) NOT NULL DEFAULT '',
+  `payment_method` varchar(20) NOT NULL DEFAULT '',
   `card_number` varchar(10) NOT NULL DEFAULT '0',
   `transaction_id` varchar(20) NOT NULL DEFAULT '',
   `transaction_type` enum('na','auth','capture','sales') NOT NULL DEFAULT 'na',
@@ -49,6 +49,9 @@ CREATE TABLE `orders` (
   `surcharge_rate` decimal(10,4) unsigned DEFAULT '0.0000',
   `fraud` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `age_verified` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `impersonator_id` int(10) unsigned DEFAULT NULL,
+  `omid_id` int(11) DEFAULT NULL,
+  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`),
   KEY `ship_method_id` (`ship_method_id`),
   KEY `FK_orders::campaigns` (`sid`),
@@ -57,13 +60,15 @@ CREATE TABLE `orders` (
   KEY `FK_orders::billing` (`billing_id`),
   KEY `FK_orders::processors` (`processor`),
   KEY `order_date` (`order_date`,`order_id`,`member_id`),
+  KEY `impersonator_id` (`impersonator_id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`impersonator_id`) REFERENCES `members` (`member_id`),
   CONSTRAINT `FK_orders::billing` FOREIGN KEY (`billing_id`) REFERENCES `billing` (`billing_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_orders::campaigns` FOREIGN KEY (`sid`) REFERENCES `campaigns` (`sid`),
   CONSTRAINT `FK_orders::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_orders::processors` FOREIGN KEY (`processor`) REFERENCES `processors` (`processor`) ON UPDATE CASCADE,
   CONSTRAINT `FK_Orders::ShipMethods` FOREIGN KEY (`ship_method_id`) REFERENCES `ship_methods` (`ship_method_id`),
   CONSTRAINT `FK_orders::shipping` FOREIGN KEY (`shipping_id`) REFERENCES `shipping` (`shipping_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7539554 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=21842669 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

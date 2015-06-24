@@ -34,6 +34,7 @@ CREATE TABLE `promos` (
   KEY `FK_promos::promo_url_actions` (`promo_url_action`),
   KEY `FK_promos::promo_types` (`promo_type`),
   KEY `FK_promos::promo_placements_promo_placement_sorts` (`promo_placement`,`promo_placement_sort`),
+  KEY `promo_gender` (`promo_gender`,`end_date`),
   CONSTRAINT `FK_promos::promo_groups` FOREIGN KEY (`promo_group`) REFERENCES `promo_groups` (`promo_group`) ON UPDATE CASCADE,
   CONSTRAINT `FK_promos::promo_placements` FOREIGN KEY (`promo_placement`) REFERENCES `promo_placements` (`promo_placement`) ON UPDATE CASCADE,
   CONSTRAINT `FK_promos::promo_placements_promo_placement_sorts` FOREIGN KEY (`promo_placement`, `promo_placement_sort`) REFERENCES `promo_placements_promo_placement_sorts` (`promo_placement`, `promo_placement_sort`) ON UPDATE CASCADE,

@@ -35,12 +35,11 @@ class Db
   end
 
   def reset
-    # cmd = "mysql -u #{DB_USER}"
     cmd = "mysql"
     system "#{cmd} -e 'DROP DATABASE IF EXISTS #{DB_NAME};' --user=root"
     system "#{cmd} -e 'CREATE DATABASE #{DB_NAME};' --user=root"
-    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\";' --user=root"
-    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"hautelook\"@\"%\";' --user=root"
+    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"#{DB_USER}\"@\"%\" IDENTIFIED BY \"hautelook\";' --user=root"
+    system "#{cmd} -e 'GRANT ALL PRIVILEGES ON * . * TO \"hautelook\"@\"%\" IDENTIFIED BY \"hautelook\";' --user=root"
     system "#{cmd} -e 'FLUSH PRIVILEGES;' --user=root"
   end
 
@@ -59,9 +58,8 @@ class Db
 
   def table_referential_constraints
     client.query(
-      "SELECT TABLE_NAME, REFERENCED_TABLE_NAME
-      FROM information_schema.REFERENTIAL_CONSTRAINTS
-      WHERE CONSTRAINT_SCHEMA = '#{DB_NAME}'"
+      "select TABLE_NAME,REFERENCED_TABLE_NAME from information_schema.KEY_COLUMN_USAGE
+			where TABLE_SCHEMA = '#{DB_NAME}'"
     )
   end
 
@@ -76,11 +74,11 @@ end
 class Exporter
   SCHEMA_ARGS = '--no-data --skip-comments --skip-triggers'
   SPROC_ARGS = '--events --no-create-db --no-create-info --no-data --routines --skip-comments --skip-opt --skip-triggers'
-  TABLE_DATA_ARGS = '--no-create-db --no-create-info --skip-comments --skip-triggers'
+  TABLE_DATA_ARGS = '--no-create-db --no-create-info --skip-comments --skip-triggers --insert-ignore'
   TABLE_TRIGGER_ARGS = '--events --no-create-db --no-create-info --no-data --skip-comments'
 
   def initialize(db_name, db_user)
-    @cmd = "mysqldump -u#{db_user} #{db_name}"
+    @cmd = "mysqldump -u #{db_user} #{db_name}"
   end
 
   def schema(table, filename)
@@ -163,4 +161,35 @@ class Importer
   alias_method :sprocs, :import
   alias_method :table_data, :import
   alias_method :table_triggers, :import
+end
+
+class InstallationMode
+
+
+  def enable_mode(dotfile_directory)
+    if File.file?("#{dotfile_directory}/.hauteFixtures") == true then
+        File.delete("#{dotfile_directory}/.hauteFixtures")
+    end
+  end
+
+  def disable_mode(dotfile_directory)
+    File.open("#{dotfile_directory}/.hauteFixtures", "w")
+  end
+
+  def check_mode(dotfile_directory)
+
+      if File.file?("#{dotfile_directory}/.hauteFixtures") == true then
+
+        puts " \e[31m You are in reset mode, Contributing to fixture data is not valid in this mode \n"
+
+        puts " \e[0m "
+
+        puts " You need to run \e[32m grunt mysql-fixtures:contribute \e[0m and then run \e[32m grunt mysql-fixtures:export \e[0m"
+
+        exit
+
+       end
+
+  end
+
 end

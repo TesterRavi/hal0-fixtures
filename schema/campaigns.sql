@@ -29,7 +29,7 @@ CREATE TABLE `campaigns` (
   KEY `FK_campaigns::campaign_channels` (`campaign_channel`),
   KEY `FK_campaigns::campaigns` (`campaign`),
   CONSTRAINT `FK_campaigns::campaign_channels` FOREIGN KEY (`campaign_channel`) REFERENCES `campaign_channels` (`campaign_channel`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=545819 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 169984 kB';
+) ENGINE=InnoDB AUTO_INCREMENT=972592 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 169984 kB';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

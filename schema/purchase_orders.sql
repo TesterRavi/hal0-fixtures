@@ -44,7 +44,7 @@ CREATE TABLE `purchase_orders` (
   CONSTRAINT `FK_purchase_orders::purchase_orders_statuses` FOREIGN KEY (`purchase_order_status`) REFERENCES `purchase_order_statuses` (`purchase_order_status`),
   CONSTRAINT `FK_purchase_orders::purchase_order_types` FOREIGN KEY (`purchase_order_type`) REFERENCES `purchase_order_types` (`purchase_order_type`),
   CONSTRAINT `FK_purchase_orders::warehouses` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`warehouse_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 225280 kB';
+) ENGINE=InnoDB AUTO_INCREMENT=37643 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 225280 kB';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

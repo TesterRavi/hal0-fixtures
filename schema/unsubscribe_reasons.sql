@@ -17,11 +17,11 @@ CREATE TABLE `unsubscribe_reasons` (
   `member_id` int(10) unsigned NOT NULL,
   `reason` varchar(100) NOT NULL,
   `other_text` varchar(150) NOT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`unsubscribe_id`),
   KEY `FK_unsubscribe_reasons::members` (`member_id`),
   CONSTRAINT `FK_unsubscribe_reasons::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3872020 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS `invitations`;
 CREATE TABLE `invitations` (
   `invitation_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `inv_camp_id` int(10) unsigned NOT NULL,
-  `invitation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `invitation_date` datetime NOT NULL,
   `invitation_ip` int(10) unsigned NOT NULL DEFAULT '0',
   `join_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `member_id` int(10) unsigned NOT NULL,
@@ -28,13 +28,14 @@ CREATE TABLE `invitations` (
   `purchase_ip` int(10) unsigned NOT NULL DEFAULT '0',
   `active` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0=inactive, 1=active',
   `self_referral` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0=Not a self referral, 1=Is a self referral',
+  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`invitation_id`),
   UNIQUE KEY `member_id` (`member_id`,`friend_email`),
   KEY `friend_id` (`friend_id`,`join_date`),
   KEY `friend_email` (`friend_email`),
   CONSTRAINT `FK_invitations::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_invitations::members2` FOREIGN KEY (`friend_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7835838 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB';
+) ENGINE=InnoDB AUTO_INCREMENT=8033423 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 9216 kB';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

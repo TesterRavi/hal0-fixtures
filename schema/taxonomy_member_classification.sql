@@ -21,8 +21,8 @@ CREATE TABLE `taxonomy_member_classification` (
   `lvl` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_10BB907C727ACA70` (`parent_id`),
-  CONSTRAINT `FK_10BB907C727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `taxonomy_member_classification` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=417 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  CONSTRAINT `taxonomy_member_classification_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `taxonomy_member_classification` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1068 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -45,8 +45,9 @@ CREATE TABLE `styles` (
   `shipping_calc_rule` varchar(50) NOT NULL DEFAULT 'weight',
   `style_group_id` varchar(50) DEFAULT NULL,
   `allow_persistent_catalog` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL,
   `last_seen_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`style_id`),
   UNIQUE KEY `style_num` (`style_num`,`brand_id`),
   KEY `FK_Styles::HazmatInstructions` (`hazmat_instruction`),
@@ -59,7 +60,7 @@ CREATE TABLE `styles` (
   KEY `FK_styles::brands` (`brand_id`),
   KEY `FK_styles::seasons` (`season`),
   KEY `FK_styles::shipping_calc_rules` (`shipping_calc_rule`),
-  KEY `FK_styles::style_group_id` (`style_group_id`),
+  KEY `FK_styles::style_groups` (`style_group_id`),
   CONSTRAINT `FK_styles::brands` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_styles::countries` FOREIGN KEY (`country_iso`) REFERENCES `countries` (`country_iso`) ON UPDATE CASCADE,
   CONSTRAINT `FK_Styles::HazmatInstructions` FOREIGN KEY (`hazmat_instruction`) REFERENCES `hazmat_instructions` (`hazmat_instruction`) ON UPDATE CASCADE,
@@ -70,8 +71,8 @@ CREATE TABLE `styles` (
   CONSTRAINT `FK_styles::seasons` FOREIGN KEY (`season`) REFERENCES `seasons` (`season`) ON UPDATE CASCADE,
   CONSTRAINT `FK_styles::shipping_calc_rules` FOREIGN KEY (`shipping_calc_rule`) REFERENCES `shipping_calc_rules` (`shipping_calc_rule`) ON UPDATE CASCADE,
   CONSTRAINT `FK_styles::size_charts` FOREIGN KEY (`size_chart`) REFERENCES `size_charts` (`size_chart`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_styles::style_group_id` FOREIGN KEY (`style_group_id`) REFERENCES `style_groups` (`style_group_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=479156 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC COMMENT='InnoDB free: 199680 kB';
+  CONSTRAINT `FK_styles::style_groups` FOREIGN KEY (`style_group_id`) REFERENCES `style_groups` (`style_group_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1325533 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC COMMENT='InnoDB free: 199680 kB';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -25,7 +25,7 @@ CREATE TABLE `purchase_orders_line_items` (
   KEY `FK_purchase_orders_line_items::purchase_orders` (`po_id`),
   CONSTRAINT `FK_purchase_orders_line_items::purchase_orders` FOREIGN KEY (`po_id`) REFERENCES `purchase_orders` (`po_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_purchase_orders_line_items::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8685588 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

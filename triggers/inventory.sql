@@ -18,7 +18,26 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_inventory_insert AFTER INSERT ON inventory
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_inventory_created_date BEFORE INSERT ON inventory
+FOR EACH ROW
+  BEGIN
+    SET NEW.created_date = NOW();
+  END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_inventory_insert AFTER INSERT ON inventory
 FOR EACH ROW
   BEGIN
     INSERT INTO solr_queue_inventory (sku, event_id, triggered_at) VALUES (NEW.sku, NEW.event_id, NOW());
@@ -38,7 +57,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_inventory_update AFTER UPDATE ON inventory
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_inventory_update AFTER UPDATE ON inventory
 FOR EACH ROW
   BEGIN
     IF
@@ -72,7 +91,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_inventory_delete AFTER DELETE ON inventory
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_inventory_delete AFTER DELETE ON inventory
 FOR EACH ROW
   BEGIN
     INSERT INTO solr_queue_inventory (sku, event_id, triggered_at) VALUES (OLD.sku, OLD.event_id, NOW());

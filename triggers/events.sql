@@ -18,7 +18,7 @@
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger events_bi BEFORE INSERT ON `events` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 trigger events_bi BEFORE INSERT ON `events` FOR EACH ROW
 BEGIN
 
 DECLARE v_email VARCHAR(100) DEFAULT '';
@@ -40,7 +40,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger events_bu BEFORE UPDATE ON `events` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`10.0.0.220`*/ /*!50003 trigger events_bu BEFORE UPDATE ON `events` FOR EACH ROW
 BEGIN
 
 DECLARE v_email VARCHAR(100) DEFAULT '';
@@ -62,7 +62,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER trigger_events_update AFTER UPDATE ON events
+/*!50003 CREATE*/ /*!50017 DEFINER=`hautelook`@`%`*/ /*!50003 TRIGGER trigger_events_update AFTER UPDATE ON events
 FOR EACH ROW
   BEGIN
     
@@ -79,7 +79,6 @@ FOR EACH ROW
           OR NOT (OLD.start_date <=> NEW.start_date)
           OR NOT (OLD.end_date <=> NEW.end_date)
           OR NOT (OLD.parent_id <=> NEW.parent_id)
-          OR NOT (OLD.event_type <=> NEW.event_type)
         )
       )
       OR ( 

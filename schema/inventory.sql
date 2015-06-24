@@ -27,6 +27,8 @@ CREATE TABLE `inventory` (
   `cost` decimal(10,2) NOT NULL DEFAULT '0.00',
   `carrier` varchar(20) DEFAULT NULL,
   `estimated_shipping_cost` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `created_date` datetime NOT NULL,
+  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`inventory_id`),
   UNIQUE KEY `event_sku` (`event_id`,`sku`),
   KEY `FK_inventory::skus` (`sku`),
@@ -35,7 +37,7 @@ CREATE TABLE `inventory` (
   CONSTRAINT `FK_inventory::carriers` FOREIGN KEY (`carrier`) REFERENCES `carriers` (`carrier`),
   CONSTRAINT `FK_inventory::events` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_inventory::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6706315 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=25791379 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

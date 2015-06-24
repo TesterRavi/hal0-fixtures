@@ -39,7 +39,7 @@ CREATE TABLE `brand_contacts` (
   CONSTRAINT `FK_brand_contacts::brands` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_brand_contacts::countries` FOREIGN KEY (`country_iso`) REFERENCES `countries` (`country_iso`) ON UPDATE CASCADE,
   CONSTRAINT `FK_brand_contacts::members` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=26132 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35343 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
