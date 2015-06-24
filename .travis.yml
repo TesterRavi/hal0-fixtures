@@ -11,13 +11,15 @@ install: gem install mysql2
 
 script:
     -  pwd
-    -  ls
-    - ./fixtures/bin/fixtures "populate-schema",
-    - ./fixtures/bin/fixtures "populate-triggers",
-    - ./fixtures/bin/fixtures "populate-sprocs",
-    - ./fixtures/bin/fixtures "populate-data",
-    - ./fixtures/bin/fixtures "apply-transformations",
-    - ./fixtures/bin/fixtures "install-enable",
+    -  cd fixtures
+    -  cd bin
+    -
+    - ./fixtures "populate-schema",
+    - ./fixtures "populate-triggers",
+    - ./fixtures "populate-sprocs",
+    - ./fixtures "populate-data",
+    - ./fixtures "apply-transformations",
+    - ./fixtures "install-enable",
 
 notifications:
     email: false
