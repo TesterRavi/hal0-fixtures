@@ -2,6 +2,9 @@
 
 use hautelook;
 
+
+select * from members;
+
 UPDATE events
 SET start_date = CURRENT_TIMESTAMP
 WHERE event_id = 21712;
